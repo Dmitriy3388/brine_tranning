@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dqyme6khei75r"]
+
+[ext_resource type="Script" uid="uid://cyxeg5eyq3iua" path="res://player_controller.gd" id="1_dulpa"]
+[ext_resource type="PackedScene" uid="uid://1dg3r3efhfdf" path="res://scenes/game_3/player.tscn" id="2_dulpa"]
+[ext_resource type="Texture2D" uid="uid://co5u4toimy54o" path="res://assets/control/right_press.png" id="4_bgjx5"]
+[ext_resource type="Texture2D" uid="uid://dqsyxuo1wx0kl" path="res://assets/control/do_mash.png" id="5_dulpa"]
+[ext_resource type="Texture2D" uid="uid://bkhgf6qfhh7l" path="res://assets/control/right.png" id="6_60bqb"]
+[ext_resource type="Texture2D" uid="uid://maxxgi72836b" path="res://assets/control/do_mash_press.png" id="6_g2yj0"]
+
+[node name="PlayerController" type="Node2D" unique_id=414473340]
+position = Vector2(1, 2)
+script = ExtResource("1_dulpa")
+
+[node name="Player" parent="." unique_id=1807456159 instance=ExtResource("2_dulpa")]
+visibility_layer = 3
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=99714606]
+
+[node name="ButtonUp" type="TouchScreenButton" parent="UI" unique_id=1688685138]
+modulate = Color(1, 1, 1, 0.59607846)
+self_modulate = Color(1, 1, 1, 0.43137255)
+position = Vector2(923.4, 432.40002)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_60bqb")
+texture_pressed = ExtResource("4_bgjx5")
+action = "ui_up"
+metadata/_edit_group_ = true
+
+[node name="ButtonDown" type="TouchScreenButton" parent="UI" unique_id=1159907747]
+modulate = Color(1, 1, 1, 0.59607846)
+self_modulate = Color(1, 1, 1, 0.43137255)
+position = Vector2(1013.39996, 538.4)
+rotation = 1.5707964
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_60bqb")
+texture_pressed = ExtResource("4_bgjx5")
+action = "ui_down"
+metadata/_edit_group_ = true
+
+[node name="ButtonLeft" type="TouchScreenButton" parent="UI" unique_id=281147436]
+modulate = Color(1, 1, 1, 0.59607846)
+self_modulate = Color(1, 1, 1, 0.43137255)
+position = Vector2(912.4, 528.4)
+rotation = -3.1415925
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_60bqb")
+texture_pressed = ExtResource("4_bgjx5")
+action = "ui_left"
+metadata/_edit_group_ = true
+
+[node name="ButtonRight" type="TouchScreenButton" parent="UI" unique_id=1544813892]
+modulate = Color(1, 1, 1, 0.59607846)
+self_modulate = Color(1, 1, 1, 0.43137255)
+position = Vector2(1020.39996, 441.4)
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_60bqb")
+texture_pressed = ExtResource("4_bgjx5")
+action = "ui_right"
+metadata/_edit_group_ = true
+
+[node name="ButtonDo" type="TouchScreenButton" parent="UI" unique_id=694667695]
+modulate = Color(1, 1, 1, 0.59607846)
+self_modulate = Color(1, 1, 1, 0.43137255)
+position = Vector2(922.4, 439.40005)
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("5_dulpa")
+texture_pressed = ExtResource("6_g2yj0")
+action = "ui_accept"

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://3erd4n4kyr3m"]
+
+[ext_resource type="Script" uid="uid://e3xnlimypm8d" path="res://scenes/game_4/game_puzzle.gd" id="1_md25m"]
+[ext_resource type="PackedScene" uid="uid://df488wdelekp8" path="res://scenes/game_4/bg.tscn" id="2_s1ae6"]
+
+[node name="Game4" type="Node2D" unique_id=2092087864]
+script = ExtResource("1_md25m")
+
+[node name="CanvasLayer" parent="." unique_id=271548736 instance=ExtResource("2_s1ae6")]
+
+[node name="Board" type="Panel" parent="." unique_id=1325333863]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="Board" unique_id=715387861]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Pieces" type="Node2D" parent="." unique_id=120200712]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1593343730]
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=1744169867]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="NextButton" type="Button" parent="UI" unique_id=894703782]
+offset_right = 8.0
+offset_bottom = 8.0

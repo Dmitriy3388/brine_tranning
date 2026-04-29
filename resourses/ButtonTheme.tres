@@ -1,0 +1,12 @@
+[gd_resource type="Theme" format=3 uid="uid://biqwcxoxscy1i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m301n"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 4
+
+[resource]
+Button/styles/pressed = SubResource("StyleBoxFlat_m301n")

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cj4b5mryeogxf"]
+
+[ext_resource type="Texture2D" uid="uid://dmi38cmymsk06" path="res://assets/game_3/Фон.png" id="1_cuwb1"]
+
+[node name="Background" type="Area2D" unique_id=7397541]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=667919640]
+position = Vector2(565, 384)
+texture = ExtResource("1_cuwb1")

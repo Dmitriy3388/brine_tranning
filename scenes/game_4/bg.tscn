@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://df488wdelekp8"]
+
+[ext_resource type="Texture2D" uid="uid://dmi38cmymsk06" path="res://assets/game_3/Фон.png" id="1_boxry"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=271548736]
+layer = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=983904187]
+z_index = -1
+position = Vector2(575, 274)
+texture = ExtResource("1_boxry")
