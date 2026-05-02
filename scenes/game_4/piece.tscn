@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0xpcfiv0xbju"]
 
-[ext_resource type="Script" uid="uid://ciu8eqipmg8ek" path="res://piece.gd" id="1_3makh"]
+[ext_resource type="Script" uid="uid://ciu8eqipmg8ek" path="res://scenes/game_4/piece.gd" id="1_3makh"]
 
 [node name="Piece" type="TextureButton" unique_id=2015752908]
 offset_right = 40.0

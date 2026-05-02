@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="BrineTraining"
-run/main_scene="uid://bbh18igj0wrl1"
+run/main_scene="uid://cvmxhfives0b8"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*uid://vo5q3qosfdgr"
+ProfileManager="*uid://358811hfa247"
 
 [display]
 
@@ -24,10 +29,6 @@ window/stretch/mode="canvas_items"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/GitGodot/plugin.cfg")
 
 [input_devices]
 

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://55uenijccgp7"]
+
+[node name="SettingsPopup" type="PopupPanel" unique_id=1770109391]
+
+[node name="MusicSlider" type="HSlider" parent="." unique_id=520495625]
+offset_right = 8.0
+offset_bottom = 16.0
+
+[node name="CloseButton" type="Button" parent="." unique_id=1784454871]
+offset_right = 8.0
+offset_bottom = 8.0

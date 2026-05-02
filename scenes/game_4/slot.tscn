@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvelrhocbuih2"]
 
-[ext_resource type="Script" uid="uid://djb1rsd1ssgep" path="res://slot.gd" id="1_c24ra"]
+[ext_resource type="Script" uid="uid://djb1rsd1ssgep" path="res://scenes/game_4/slot.gd" id="1_c24ra"]
 
 [node name="Slot" type="Panel" unique_id=1495311942]
 offset_right = 40.0

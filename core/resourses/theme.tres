@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://dknv2awmtpevm"]
+
+[ext_resource type="StyleBox" uid="uid://8vyf0206ep3w" path="res://assets/ui/green_button_theme.tres" id="1_r5w36"]
+[ext_resource type="StyleBox" uid="uid://cusc3131hyofo" path="res://assets/ui/green_button_pressed_theme.tres" id="2_4lxmn"]
+
+[resource]
+Button/colors/font_color = Color(0.1081861, 0.21909022, 0.10395572, 1)
+Button/colors/font_pressed_color = Color(0.036740873, 0.085837506, 0.004708349, 1)
+Button/styles/normal = ExtResource("1_r5w36")
+Button/styles/pressed = ExtResource("2_4lxmn")

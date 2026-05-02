@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dkpog8qghysr7"]
+
+[ext_resource type="Theme" uid="uid://dknv2awmtpevm" path="res://core/resourses/theme.tres" id="1_0yhc0"]
+[ext_resource type="Script" uid="uid://bqus07f6r33sf" path="res://core/profile_selector.gd" id="1_6r1w6"]
+[ext_resource type="Texture2D" uid="uid://c73x7dyiy8b1q" path="res://assets/puzzle/1776366435107.png" id="3_61dyk"]
+
+[node name="ProfileSelector" type="Panel" unique_id=1536942770]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_right = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0yhc0")
+script = ExtResource("1_6r1w6")
+
+[node name="BackGround" type="TextureRect" parent="." unique_id=1108560137]
+layout_mode = 0
+offset_left = -611.5
+offset_top = -397.0
+offset_right = 764.5
+offset_bottom = 371.0
+texture = ExtResource("3_61dyk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=661613077]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -480.5
+offset_top = -71.0
+offset_right = -401.5
+offset_bottom = -5.0
+grow_vertical = 2
+
+[node name="SelectButton" type="Button" parent="VBoxContainer" unique_id=2060520500]
+layout_mode = 2
+text = "Выбрать"
+
+[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=1511650164]
+layout_mode = 2
+text = "Назад"
+
+[node name="ProfilesList" type="ItemList" parent="." unique_id=261560830]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -397.5
+offset_top = -115.0
+offset_right = -277.5
+offset_bottom = 105.0
+grow_horizontal = 0
+grow_vertical = 2
+item_count = 1
+item_0/text = "Профили"

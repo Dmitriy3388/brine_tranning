@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://bv8mqx0y1psbu"]
+
+[ext_resource type="Script" uid="uid://dfs6sv6u3iq05" path="res://scenes/game_5/game_5.gd" id="1_072ax"]
+[ext_resource type="Texture2D" uid="uid://dlqus7q7poahe" path="res://assets/game_5/ui/red.png" id="1_qci2v"]
+[ext_resource type="Texture2D" uid="uid://bkhgf6qfhh7l" path="res://assets/control/right.png" id="2_cvgey"]
+[ext_resource type="Script" uid="uid://cdgyv5fl2as4g" path="res://scenes/game_5/color_button.gd" id="2_rkatd"]
+[ext_resource type="Texture2D" uid="uid://d1ouwg0udvmx2" path="res://assets/game_5/ui/black.png" id="2_vp31c"]
+[ext_resource type="Texture2D" uid="uid://bkouolbdp36as" path="res://assets/game_5/ui/blue.png" id="3_rkatd"]
+[ext_resource type="Texture2D" uid="uid://c6nchxf7ual0j" path="res://assets/game_5/ui/cyan.png" id="4_jiyl2"]
+[ext_resource type="Texture2D" uid="uid://clwfn4noyytnv" path="res://assets/game_5/ui/brown.png" id="5_072ax"]
+[ext_resource type="Texture2D" uid="uid://bx2vgl1qy8qye" path="res://assets/game_5/ui/green.png" id="6_latxi"]
+[ext_resource type="Texture2D" uid="uid://bj3w55qxcyha" path="res://assets/game_5/ui/yellow.png" id="7_yrjy0"]
+[ext_resource type="Texture2D" uid="uid://c4m2ifxtjkr3l" path="res://assets/game_5/ui/violet.png" id="8_7ix3d"]
+[ext_resource type="Texture2D" uid="uid://bh2ltpvwkgjro" path="res://assets/game_5/ui/pink.png" id="9_2kdko"]
+[ext_resource type="Texture2D" uid="uid://b4nratouqoggu" path="res://assets/game_5/ui/orange.png" id="10_65g7r"]
+[ext_resource type="Texture2D" uid="uid://kj5u7ognjvu" path="res://assets/control/do.png" id="12_jiyl2"]
+[ext_resource type="Script" uid="uid://cmp26b07jt2tt" path="res://scenes/game_5/drawing_area.gd" id="13_jiyl2"]
+[ext_resource type="PackedScene" uid="uid://dctvi3v8q1px7" path="res://core/menu.tscn" id="15_latxi"]
+
+[node name="Game5" type="Node2D" unique_id=917192953]
+script = ExtResource("1_072ax")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=829246255]
+
+[node name="NextButton" type="TouchScreenButton" parent="CanvasLayer" unique_id=200496023]
+position = Vector2(1051, 518)
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("2_cvgey")
+
+[node name="ColorPalette" type="GridContainer" parent="CanvasLayer" unique_id=1436203603]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -308.0
+offset_right = 437.0
+offset_bottom = 1287.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="black" type="TextureButton" parent="CanvasLayer/ColorPalette" unique_id=1971911272]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("2_vp31c")
+script = ExtResource("2_rkatd")
+button_color = Color(0, 0, 0, 1)
+
+[node name="blue" type="TextureButton" parent="CanvasLayer/ColorPalette" unique_id=760574705]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("3_rkatd")
+script = ExtResource("2_rkatd")
+button_color = Color(0.1043281, 0.18737581, 0.9999972, 1)
+
+[node name="red" type="TextureButton" parent="CanvasLayer/ColorPalette" unique_id=1412519864]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("1_qci2v")
+script = ExtResource("2_rkatd")
+button_color = Color(0.80918133, 4.379898e-06, 8.663535e-07, 1)
+
+[node name="cyan" type="TextureButton" parent="CanvasLayer/ColorPalette" unique_id=1602023218]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("4_jiyl2")
+script = ExtResource("2_rkatd")
+button_color = Color(0.44171134, 1, 1, 1)
+
+[node name="brown" type="TextureButton" parent="CanvasLayer/ColorPalette" unique_id=510460045]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("5_072ax")
+script = ExtResource("2_rkatd")
+button_color = Color(0.39947224, 0.33515906, 0.27970913, 1)
+
+[node name="green" type="TextureButton" parent="CanvasLayer/ColorPalette" unique_id=595626205]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("6_latxi")
+script = ExtResource("2_rkatd")
+button_color = Color(0.19102448, 0.46181566, 0.24733406, 1)
+
+[node name="yellow" type="TextureButton" parent="CanvasLayer/ColorPalette" unique_id=1216471339]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("7_yrjy0")
+script = ExtResource("2_rkatd")
+button_color = Color(0.95194453, 0.8008492, 0, 1)
+
+[node name="violet" type="TextureButton" parent="CanvasLayer/ColorPalette" unique_id=444078176]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("8_7ix3d")
+script = ExtResource("2_rkatd")
+button_color = Color(0.497218, 0.00288746, 0.8353762, 1)
+
+[node name="pink" type="TextureButton" parent="CanvasLayer/ColorPalette" unique_id=844685541]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("9_2kdko")
+script = ExtResource("2_rkatd")
+button_color = Color(0.85767764, 0.34073257, 0.8786183, 1)
+
+[node name="orange" type="TextureButton" parent="CanvasLayer/ColorPalette" unique_id=156053635]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("10_65g7r")
+script = ExtResource("2_rkatd")
+button_color = Color(0.84127223, 0.38224792, 0, 1)
+
+[node name="Erayser" type="TouchScreenButton" parent="CanvasLayer" unique_id=514482359]
+position = Vector2(739, 379)
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("12_jiyl2")
+
+[node name="DrawingArea" type="Control" parent="." unique_id=608532975]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = 1124.0
+offset_bottom = 650.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_jiyl2")
+
+[node name="TextureRect" type="TextureRect" parent="DrawingArea" unique_id=147779583]
+layout_mode = 0
+stretch_mode = 5
+
+[node name="Menu" parent="." unique_id=2029094576 instance=ExtResource("15_latxi")]

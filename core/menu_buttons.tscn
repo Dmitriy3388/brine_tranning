@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://gfm6e1n22b8o"]
+
+[ext_resource type="Theme" uid="uid://dknv2awmtpevm" path="res://core/resourses/theme.tres" id="1_p7eyk"]
+
+[node name="VBoxContainer" type="VBoxContainer" unique_id=1710993121]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_p7eyk")
+
+[node name="PlayButton" type="Button" parent="." unique_id=73754319]
+layout_mode = 2
+text = "Играть!"
+
+[node name="ContinueButton" type="Button" parent="." unique_id=511468676]
+layout_mode = 2
+text = "Продолжить"
+
+[node name="SettingsButton" type="Button" parent="." unique_id=349180431]
+layout_mode = 2
+text = "Настройки"
+
+[node name="QuitButton" type="Button" parent="." unique_id=1156453042]
+layout_mode = 2
+text = "Выход
+"

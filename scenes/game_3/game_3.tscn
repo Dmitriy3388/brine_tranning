@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cplgsc2rutcti" path="res://assets/game_3/tilesprite.png" id="4_hsngp"]
 [ext_resource type="PackedScene" uid="uid://1dg3r3efhfdf" path="res://scenes/game_3/player.tscn" id="4_m5kj8"]
 [ext_resource type="PackedScene" uid="uid://csnfy4nh5nlir" path="res://scenes/controller/ui.tscn" id="5_m5kj8"]
+[ext_resource type="PackedScene" uid="uid://dctvi3v8q1px7" path="res://core/menu.tscn" id="6_5bin6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m5kj8"]
 texture = ExtResource("4_hsngp")
@@ -110,3 +111,5 @@ tile_set = SubResource("TileSet_5bin6")
 collision_mask = 3
 
 [node name="UI" parent="." unique_id=163202219 instance=ExtResource("5_m5kj8")]
+
+[node name="Menu" parent="." unique_id=2029094576 instance=ExtResource("6_5bin6")]

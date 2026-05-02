@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://e3xnlimypm8d" path="res://scenes/game_4/game_puzzle.gd" id="1_md25m"]
 [ext_resource type="PackedScene" uid="uid://df488wdelekp8" path="res://scenes/game_4/bg.tscn" id="2_s1ae6"]
+[ext_resource type="Theme" uid="uid://dknv2awmtpevm" path="res://core/resourses/theme.tres" id="3_v8640"]
+[ext_resource type="PackedScene" uid="uid://dctvi3v8q1px7" path="res://core/menu.tscn" id="4_p68ae"]
 
 [node name="Game4" type="Node2D" unique_id=2092087864]
 script = ExtResource("1_md25m")
@@ -28,3 +30,6 @@ offset_bottom = 23.0
 [node name="NextButton" type="Button" parent="UI" unique_id=894703782]
 offset_right = 8.0
 offset_bottom = 8.0
+theme = ExtResource("3_v8640")
+
+[node name="Menu" parent="." unique_id=2029094576 instance=ExtResource("4_p68ae")]

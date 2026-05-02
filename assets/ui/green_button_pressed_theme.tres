@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://cusc3131hyofo"]
+
+[resource]
+resource_name = "GreenButton"
+bg_color = Color(0.32610095, 0.4904368, 0.11929502, 1)
+border_color = Color(0.011764706, 0.21960784, 0, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 13
+shadow_offset = Vector2(2, 2)
