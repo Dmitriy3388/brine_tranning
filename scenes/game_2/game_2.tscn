@@ -10,13 +10,13 @@ script = ExtResource("1_61f2i")
 [node name="CanvasLayer" parent="." unique_id=271548736 instance=ExtResource("2_5m14n")]
 
 [node name="ProfessionSprite" type="Sprite2D" parent="." unique_id=100415745]
-position = Vector2(162.17288, 178.45648)
+position = Vector2(173, 319)
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=1849415537]
-offset_left = 525.0
-offset_top = 63.0
-offset_right = 1046.0
-offset_bottom = 381.0
+offset_left = 527.0
+offset_top = 174.0
+offset_right = 1048.0
+offset_bottom = 492.0
 columns = 3
 
 [node name="UI" type="Control" parent="." unique_id=1112630993]
@@ -29,27 +29,27 @@ grow_vertical = 2
 
 [node name="ScoreLabel" type="Label" parent="UI" unique_id=671145090]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 7.0
-offset_right = 152.0
-offset_bottom = 58.0
+offset_left = 75.0
+offset_top = 50.0
+offset_right = 206.0
+offset_bottom = 101.0
 text = "Счёт: 0"
 
 [node name="RoundLabel" type="Label" parent="UI" unique_id=310796591]
 layout_mode = 0
-offset_left = 497.0
-offset_top = 5.0
-offset_right = 579.0
-offset_bottom = 28.0
+offset_left = 75.0
+offset_top = 110.0
+offset_right = 157.0
+offset_bottom = 161.0
 text = "Раунд: 0/5"
 horizontal_alignment = 1
 
 [node name="ProfessionLabel" type="Label" parent="UI" unique_id=1887190342]
 layout_mode = 0
-offset_left = 1028.0
-offset_top = 10.0
-offset_right = 1068.0
-offset_bottom = 33.0
+offset_left = 78.0
+offset_top = 80.0
+offset_right = 118.0
+offset_bottom = 103.0
 text = "Врач"
 horizontal_alignment = 1
 

@@ -1,11 +1,42 @@
 [gd_scene format=3 uid="uid://55uenijccgp7"]
 
+[ext_resource type="Script" uid="uid://c4nokx7qmlff" path="res://core/settings_popup.gd" id="1_bnt3j"]
+[ext_resource type="StyleBox" uid="uid://b45k3sovtdquc" path="res://core/resourses/popup_style.tres" id="1_mwlkf"]
+
 [node name="SettingsPopup" type="PopupPanel" unique_id=1770109391]
+oversampling_override = 1.0
+title = "Настройки"
+size = Vector2i(325, 194)
+visible = true
+theme_override_styles/panel = ExtResource("1_mwlkf")
+script = ExtResource("1_bnt3j")
 
-[node name="MusicSlider" type="HSlider" parent="." unique_id=520495625]
-offset_right = 8.0
-offset_bottom = 16.0
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1719766054]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 323.0
+offset_bottom = 194.0
 
-[node name="CloseButton" type="Button" parent="." unique_id=1784454871]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="MusicLabel" type="Label" parent="VBoxContainer" unique_id=802956757]
+layout_mode = 2
+text = "Музыка"
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer" unique_id=1612269378]
+layout_mode = 2
+value = 1.0
+
+[node name="SoundLabel" type="Label" parent="VBoxContainer" unique_id=2073146549]
+layout_mode = 2
+text = "Звук"
+
+[node name="SoundSlider" type="HSlider" parent="VBoxContainer" unique_id=1328683573]
+layout_mode = 2
+value = 1.0
+
+[node name="SwitchUserButton" type="Button" parent="VBoxContainer" unique_id=1358266360]
+layout_mode = 2
+text = "Сменить пользователя"
+
+[node name="CloseButton" type="Button" parent="VBoxContainer" unique_id=1705644959]
+layout_mode = 2
+text = "Закрыть"

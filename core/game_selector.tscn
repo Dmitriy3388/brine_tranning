@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c73x7dyiy8b1q" path="res://assets/game_4/1776366435107.png" id="2_hg07a"]
 [ext_resource type="StyleBox" uid="uid://8vyf0206ep3w" path="res://assets/ui/green_button_theme.tres" id="2_wvouo"]
 [ext_resource type="StyleBox" uid="uid://cusc3131hyofo" path="res://assets/ui/green_button_pressed_theme.tres" id="3_hecs3"]
+[ext_resource type="Theme" uid="uid://dknv2awmtpevm" path="res://core/resourses/theme.tres" id="3_m4r4m"]
 
 [sub_resource type="FontVariation" id="FontVariation_hecs3"]
 
@@ -51,9 +52,11 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_m4r4m")
 
 [node name="Game1" type="Button" parent="SelectorButtons" unique_id=217171606]
 layout_mode = 2
+theme = ExtResource("3_m4r4m")
 theme_override_colors/font_color = Color(1.3085548e-07, 0.08523644, 0.054462247, 1)
 theme_override_fonts/font = SubResource("FontVariation_hecs3")
 theme_override_styles/normal = ExtResource("2_wvouo")

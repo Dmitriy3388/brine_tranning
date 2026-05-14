@@ -58,3 +58,11 @@ scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("3_ipn3o")
 texture_pressed = ExtResource("4_n4y67")
 action = "ui_accept"
+
+[node name="MushroomCounter" type="Label" parent="." unique_id=1378745814]
+offset_left = 20.0
+offset_top = 30.0
+offset_right = 60.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 24
+text = "🍄 0/4"

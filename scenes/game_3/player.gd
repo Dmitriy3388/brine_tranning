@@ -8,6 +8,7 @@ var is_busy: bool = false
 var last_valid_position: Vector2 = Vector2.ZERO
 
 func _ready():
+	last_valid_position = position
 	print("Player ready at position: ", position)
 
 func _physics_process(_delta):

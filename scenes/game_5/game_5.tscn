@@ -16,9 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://kj5u7ognjvu" path="res://assets/control/do.png" id="12_jiyl2"]
 [ext_resource type="Script" uid="uid://cmp26b07jt2tt" path="res://scenes/game_5/drawing_area.gd" id="13_jiyl2"]
 [ext_resource type="PackedScene" uid="uid://dctvi3v8q1px7" path="res://core/menu.tscn" id="15_latxi"]
+[ext_resource type="PackedScene" uid="uid://cj4b5mryeogxf" path="res://scenes/game_3/background.tscn" id="16_ul1jh"]
 
 [node name="Game5" type="Node2D" unique_id=917192953]
 script = ExtResource("1_072ax")
+
+[node name="Background" parent="." unique_id=7397541 instance=ExtResource("16_ul1jh")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=829246255]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dknv2awmtpevm" path="res://core/resourses/theme.tres" id="1_cxign"]
 [ext_resource type="PackedScene" uid="uid://gfm6e1n22b8o" path="res://core/menu_buttons.tscn" id="2_ojhwp"]
-[ext_resource type="Script" path="res://core/main_menu.gd" id="2_pjus7"]
+[ext_resource type="Script" uid="uid://c1h1mek2ho7sw" path="res://core/main_menu.gd" id="2_pjus7"]
 [ext_resource type="Texture2D" uid="uid://c73x7dyiy8b1q" path="res://assets/game_4/1776366435107.png" id="3_pjus7"]
 [ext_resource type="PackedScene" uid="uid://55uenijccgp7" path="res://core/settings_popup.tscn" id="3_xyag6"]
 
@@ -44,4 +44,3 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SettingsPopup" parent="." unique_id=1770109391 instance=ExtResource("3_xyag6")]
-oversampling_override = 1.0

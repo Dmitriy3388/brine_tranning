@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://vo5q3qosfdgr"
 ProfileManager="*uid://358811hfa247"
+PopupHelper="*uid://c5c4ehr8h2rvv"
 
 [display]
 

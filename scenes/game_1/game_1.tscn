@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xxa28x7l4xb" path="res://scenes/game_1/game_1.gd" id="1_2h77j"]
 [ext_resource type="PackedScene" uid="uid://df488wdelekp8" path="res://scenes/game_4/bg.tscn" id="2_6stni"]
+[ext_resource type="PackedScene" uid="uid://dctvi3v8q1px7" path="res://core/menu.tscn" id="3_owisg"]
 
 [node name="Game_1" type="Node2D" unique_id=1322658223]
 script = ExtResource("1_2h77j")
@@ -37,3 +38,5 @@ offset_left = 368.0
 offset_top = 472.0
 offset_right = 843.0
 offset_bottom = 644.0
+
+[node name="Menu" parent="." unique_id=2029094576 instance=ExtResource("3_owisg")]

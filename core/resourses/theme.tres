@@ -6,5 +6,6 @@
 [resource]
 Button/colors/font_color = Color(0.1081861, 0.21909022, 0.10395572, 1)
 Button/colors/font_pressed_color = Color(0.036740873, 0.085837506, 0.004708349, 1)
+Button/styles/hover = ExtResource("1_r5w36")
 Button/styles/normal = ExtResource("1_r5w36")
 Button/styles/pressed = ExtResource("2_4lxmn")

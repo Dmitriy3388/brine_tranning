@@ -13,11 +13,35 @@ var piece_height = 0.0
 var total_pieces = 0
 var placed_pieces = 0
 var current_level = 1
+var level_completed = false
+var total_levels = 0  # Автоматически вычисляется
 
 func _ready():
 	setup_board()
 	button_setup()
+	detect_total_levels()
 	load_level(current_level)
+
+func detect_total_levels():
+	# Автоматически определяем количество уровней в папке assets/game_4/
+	total_levels = 0
+	var level = 1
+	
+	while true:
+		var image_path_png = "res://assets/game_4/level" + str(level) + "/full.png"
+		var image_path_jpg = "res://assets/game_4/level" + str(level) + "/full.jpg"
+		
+		if ResourceLoader.exists(image_path_png) or ResourceLoader.exists(image_path_jpg):
+			total_levels += 1
+			level += 1
+		else:
+			break
+	
+	print("Detected total levels: ", total_levels)
+	
+	if total_levels == 0:
+		print("ERROR: No levels found!")
+		total_levels = 1  # Защита от деления на ноль
 
 func button_setup():
 	next_button.visible = false
@@ -28,7 +52,6 @@ func button_setup():
 
 func setup_board():
 	board.position = Vector2(80, 40)
-	
 	var invisible_style = StyleBoxFlat.new()
 	invisible_style.bg_color = Color.TRANSPARENT
 	invisible_style.border_width_bottom = 0
@@ -43,23 +66,20 @@ func resize_texture(texture: Texture2D, max_size: int) -> Texture2D:
 	var width = image.get_width()
 	var height = image.get_height()
 	
-	# Если уже меньше — возвращаем оригинал
 	if width <= max_size and height <= max_size:
 		return texture
 	
-	# Вычисляем новый размер с сохранением пропорций
 	var scale = float(max_size) / float(max(width, height))
 	var new_width = max(1, int(width * scale))
 	var new_height = max(1, int(height * scale))
 	
-	# Изменяем размер
 	image.resize(new_width, new_height, Image.INTERPOLATE_LANCZOS)
 	var new_texture = ImageTexture.create_from_image(image)
 	
-	print("Resized texture from ", width, "x", height, " to ", new_width, "x", new_height)
 	return new_texture
 
 func load_level(level_num):
+	level_completed = false
 	clear_children(grid_container)
 	clear_children(pieces_container)
 	
@@ -70,31 +90,24 @@ func load_level(level_num):
 	else:
 		grid_size.x = 6
 	
-	# Автоматический выбор формата (PNG или JPG)
 	var image_path_png = "res://assets/game_4/level" + str(level_num) + "/full.png"
 	var image_path_jpg = "res://assets/game_4/level" + str(level_num) + "/full.jpg"
-	
 	current_image = null
 	
 	if ResourceLoader.exists(image_path_png):
 		current_image = load(image_path_png)
-		# Уменьшаем текстуру, если она слишком большая (макс. 1024px)
-		print("Loaded PNG for level ", level_num)
 	elif ResourceLoader.exists(image_path_jpg):
 		current_image = load(image_path_jpg)
-		# Уменьшаем текстуру, если она слишком большая (макс. 1024px)
-		print("Loaded JPG for level ", level_num)
 	else:
-		print("ERROR: Cannot load image for level ", level_num, " (tried PNG and JPG)")
+		print("ERROR: Cannot load image for level ", level_num)
 		return
+	
 	current_image = resize_texture(current_image, 450)
+	
 	var cols = grid_size.x
 	var piece_width_tmp = float(current_image.get_width()) / cols
 	grid_size.y = current_image.get_height() / piece_width_tmp
-	
-	if int(grid_size.y) != grid_size.y:
-		print("WARNING: Image height does not divide evenly into ", cols, " columns!")
-		grid_size.y = round(grid_size.y)
+	grid_size.y = round(grid_size.y)
 	
 	piece_width = float(current_image.get_width()) / float(grid_size.x)
 	piece_height = float(current_image.get_height()) / float(grid_size.y)
@@ -135,7 +148,6 @@ func load_level(level_num):
 			var rect = Rect2(x * piece_width, y * piece_height, piece_width, piece_height)
 			var piece_image = image.get_region(rect)
 			var piece_texture = ImageTexture.create_from_image(piece_image)
-			
 			var piece = preload("res://scenes/game_4/piece.tscn").instantiate()
 			piece.texture_normal = piece_texture
 			piece.custom_minimum_size = Vector2(piece_width, piece_height)
@@ -151,11 +163,10 @@ func load_level(level_num):
 		pieces_container.add_child(piece)
 	
 	score_label.text = "0/" + str(total_pieces)
-	
+
 func get_random_position_outside_board(current_piece):
 	var viewport_rect = get_viewport().get_visible_rect()
 	var board_rect = Rect2(board.global_position, board.size)
-	
 	var margin = 20
 	var fragment_size = piece_width
 	var max_attempts = 300
@@ -180,19 +191,61 @@ func get_random_position_outside_board(current_piece):
 	return Vector2(board_rect.end.x + 80, 100 + (pieces_container.get_child_count() * 10))
 
 func on_piece_placed():
+	if level_completed:
+		return
+	
 	placed_pieces += 1
 	score_label.text = str(placed_pieces) + "/" + str(total_pieces)
+	
 	if placed_pieces >= total_pieces:
 		on_level_complete()
 
 func on_level_complete():
-	print("Level complete!")
+	if level_completed:
+		return
+	
+	level_completed = true
+	print("Level ", current_level, " complete!")
+	
+	GameManager.add_stars(1)
+	
+	if current_level >= total_levels:
+		next_button.text = "В меню"
+		
+		# Победа во всей игре
+		PopupHelper.show_notification(
+			"ПОЗДРАВЛЯЮ!",
+			"Ты собрал все " + str(total_levels) + " пазлов!\n+" + str(total_levels) + " звёзд!",
+			true,
+			2.0,
+			func(): 
+				GameManager.open_game_selector()
+		)
+	else:
+		next_button.text = "Следующий уровень"
+		
+		# Короткое уведомление за уровень (без перехода)
+		PopupHelper.show_notification(
+			"Уровень " + str(current_level) + " пройден!",
+			"+1 звезда!",
+			true,
+			1.0,
+			Callable()
+		)
+	
 	grid_container.add_theme_constant_override("h_separation", 0)
 	grid_container.add_theme_constant_override("v_separation", 0)
+	
 	await get_tree().process_frame
 	next_button.visible = true
 
 func _on_next_button_pressed():
+	if current_level >= total_levels:
+		# После последнего уровня — выход в меню выбора игр
+		GameManager.open_game_selector()
+		return
+	
+	# Переход на следующий уровень
 	current_level += 1
 	next_button.visible = false
 	load_level(current_level)
