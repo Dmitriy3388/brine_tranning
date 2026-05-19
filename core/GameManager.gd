@@ -12,6 +12,8 @@ const GAMES := {
 	"game_5": "res://scenes/game_5/game_5.tscn",
 }
 
+signal stars_updated(new_stars)
+signal game_exited
 const LAST_PROFILE_FILE = "user://last_profile.txt"
 
 ## Порог звёзд для разблокировки игр (если не открыта явно через unlocked_games)
@@ -36,6 +38,11 @@ func _ready():
 func set_profile(profile: Dictionary) -> void:
 	current_profile = profile
 	
+		# НОВОЕ: Показываем топ-бар при загрузке профиля
+	if TopBar:
+		TopBar.visible = true
+		TopBar._update_display()  # Обновляем данные
+	
 	if not current_profile.has("stars"):
 		current_profile["stars"] = 0
 	
@@ -44,7 +51,8 @@ func set_profile(profile: Dictionary) -> void:
 	
 	# Синхронизируем звёзды с порогами — автоматически разблокируем игры, если хватает звёзд
 	_sync_unlocked_by_stars()
-
+	stars_updated.emit(get_stars())
+	
 ## Синхронизация: если звёзд достаточно для игры, но её нет в unlocked_games — добавляем
 func _sync_unlocked_by_stars() -> void:
 	var current_stars = get_stars()
@@ -69,10 +77,14 @@ func _save_current_profile() -> void:
 func get_stars() -> int:
 	return current_profile.get("stars", 0)
 
+
 func add_stars(amount: int) -> void:
 	current_profile["stars"] = current_profile.get("stars", 0) + amount
 	_sync_unlocked_by_stars()
 	_save_current_profile()
+	
+	# Отправляем сигнал
+	stars_updated.emit(current_profile["stars"])
 
 func unlock_game(game_id: String) -> void:
 	var unlocked: Array = current_profile.get("unlocked_games", [])
@@ -125,9 +137,13 @@ func start_game(game_id: String) -> void:
 	change_scene(GAMES[game_id])
 
 func open_game_selector() -> void:
+	game_exited.emit()
 	change_scene("res://core/game_selector.tscn")
 
 func open_main_menu() -> void:
+	if TopBar:
+		TopBar.visible = false
+	game_exited.emit()
 	change_scene("res://core/main_menu.tscn")
 
 func open_profile_selector() -> void:
@@ -150,3 +166,7 @@ func clear_last_profile() -> void:
 	if FileAccess.file_exists(LAST_PROFILE_FILE):
 		var dir = DirAccess.open("user://")
 		dir.remove(LAST_PROFILE_FILE)
+
+func update_top_bar(score: int = -1, mistakes: int = -1, max_mistakes: int = 0, round_info: String = ""):
+	if TopBar and TopBar.has_method("update_game_stats"):
+		TopBar.update_game_stats(score, mistakes, max_mistakes, round_info)

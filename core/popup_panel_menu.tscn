@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dqxluiqapd8uu"]
+
+[ext_resource type="Theme" uid="uid://dknv2awmtpevm" path="res://core/resourses/theme.tres" id="1_ulib0"]
+[ext_resource type="Texture2D" uid="uid://bsmwg1cppovyo" path="res://assets/ui/icon_star.png" id="3_esgjl"]
+[ext_resource type="StyleBox" uid="uid://c8ec0teeyahjj" path="res://core/resourses/button_p_texture.tres" id="4_apdtd"]
+[ext_resource type="StyleBox" uid="uid://dfs77l1oqu38w" path="res://core/resourses/press_texture.tres" id="5_apdtd"]
+[ext_resource type="StyleBox" uid="uid://dej8f70jqx3ku" path="res://core/resourses/botton_f_texture.tres" id="6_lu5xp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mn3ec"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0.654902, 0.24705882, 0.99215686)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0.5618421, 0.8956448, 0.56680715, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_apdtd"]
+
+[node name="PopupPanel" type="PopupPanel" unique_id=2142165672]
+oversampling_override = 1.0
+mode = 3
+initial_position = 1
+size = Vector2i(323, 206)
+nonclient_area = Rect2i(0, 0, 0, 73)
+visible = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_mn3ec")
+
+[node name="PlayMenu" type="VBoxContainer" parent="." unique_id=1596417532]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -313.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 196.0
+grow_horizontal = 0
+theme = ExtResource("1_ulib0")
+theme_override_constants/separation = 4
+
+[node name="Selector" type="Button" parent="PlayMenu" unique_id=1736462270]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme = SubResource("Theme_apdtd")
+theme_override_constants/icon_max_width = 30
+theme_override_icons/icon = ExtResource("3_esgjl")
+theme_override_styles/normal = ExtResource("4_apdtd")
+theme_override_styles/pressed = ExtResource("5_apdtd")
+theme_override_styles/hover = ExtResource("6_lu5xp")
+text = "Выбор Игры"
+
+[node name="MainMenu" type="Button" parent="PlayMenu" unique_id=1609724707]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme_override_constants/icon_max_width = 30
+theme_override_icons/icon = ExtResource("3_esgjl")
+theme_override_styles/normal = ExtResource("4_apdtd")
+theme_override_styles/pressed = ExtResource("5_apdtd")
+theme_override_styles/hover = ExtResource("6_lu5xp")
+text = "В меню"
+
+[node name="Back" type="Button" parent="PlayMenu" unique_id=561978719]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme_override_constants/icon_max_width = 30
+theme_override_icons/icon = ExtResource("3_esgjl")
+theme_override_styles/normal = ExtResource("4_apdtd")
+theme_override_styles/pressed = ExtResource("5_apdtd")
+theme_override_styles/hover = ExtResource("6_lu5xp")
+text = "Назад"

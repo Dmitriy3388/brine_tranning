@@ -14,7 +14,7 @@ var total_pieces = 0
 var placed_pieces = 0
 var current_level = 1
 var level_completed = false
-var total_levels = 0  # Автоматически вычисляется
+var total_levels = 0
 
 func _ready():
 	setup_board()
@@ -23,7 +23,6 @@ func _ready():
 	load_level(current_level)
 
 func detect_total_levels():
-	# Автоматически определяем количество уровней в папке assets/game_4/
 	total_levels = 0
 	var level = 1
 	
@@ -41,17 +40,17 @@ func detect_total_levels():
 	
 	if total_levels == 0:
 		print("ERROR: No levels found!")
-		total_levels = 1  # Защита от деления на ноль
+		total_levels = 1
 
 func button_setup():
 	next_button.visible = false
-	next_button.position = Vector2(550, 320)
+	next_button.position = Vector2(550, 400)  # Смещён вниз с 320 на 400
 	next_button.custom_minimum_size = Vector2(150, 40)
 	next_button.text = "Следующий уровень"
 	next_button.pressed.connect(_on_next_button_pressed)
 
 func setup_board():
-	board.position = Vector2(80, 40)
+	board.position = Vector2(80, 120)  # Было 40, стало 120 (смещение на 80)
 	var invisible_style = StyleBoxFlat.new()
 	invisible_style.bg_color = Color.TRANSPARENT
 	invisible_style.border_width_bottom = 0
@@ -124,7 +123,7 @@ func load_level(level_num):
 	var grid_height = (piece_height * grid_size.y) + (v_separation * (grid_size.y - 1))
 	
 	board.size = Vector2(grid_width, grid_height)
-	board.position = Vector2(80, 40)
+	board.position = Vector2(80, 120)  # Было 40, стало 120
 	grid_container.columns = grid_size.x
 	
 	for i in range(total_pieces):
@@ -162,7 +161,12 @@ func load_level(level_num):
 		piece.position = random_pos
 		pieces_container.add_child(piece)
 	
-	score_label.text = "0/" + str(total_pieces)
+	update_top_bar()
+
+func update_top_bar():
+	var level_info = "🧩 Уровень " + str(current_level) + "/" + str(total_levels)
+	var progress = str(placed_pieces) + "/" + str(total_pieces)
+	GameManager.update_top_bar(-1, -1, 0, level_info + "  |  🧩 " + progress)
 
 func get_random_position_outside_board(current_piece):
 	var viewport_rect = get_viewport().get_visible_rect()
@@ -196,6 +200,7 @@ func on_piece_placed():
 	
 	placed_pieces += 1
 	score_label.text = str(placed_pieces) + "/" + str(total_pieces)
+	update_top_bar()
 	
 	if placed_pieces >= total_pieces:
 		on_level_complete()
@@ -212,7 +217,6 @@ func on_level_complete():
 	if current_level >= total_levels:
 		next_button.text = "В меню"
 		
-		# Победа во всей игре
 		PopupHelper.show_notification(
 			"ПОЗДРАВЛЯЮ!",
 			"Ты собрал все " + str(total_levels) + " пазлов!\n+" + str(total_levels) + " звёзд!",
@@ -224,7 +228,6 @@ func on_level_complete():
 	else:
 		next_button.text = "Следующий уровень"
 		
-		# Короткое уведомление за уровень (без перехода)
 		PopupHelper.show_notification(
 			"Уровень " + str(current_level) + " пройден!",
 			"+1 звезда!",
@@ -241,11 +244,9 @@ func on_level_complete():
 
 func _on_next_button_pressed():
 	if current_level >= total_levels:
-		# После последнего уровня — выход в меню выбора игр
 		GameManager.open_game_selector()
 		return
 	
-	# Переход на следующий уровень
 	current_level += 1
 	next_button.visible = false
 	load_level(current_level)

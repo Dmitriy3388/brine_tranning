@@ -1,13 +1,10 @@
 [gd_scene format=3 uid="uid://b6mrodiffag3u"]
 
 [ext_resource type="Script" uid="uid://c0a8dfay0i020" path="res://scenes/game_2/game_2.gd" id="1_61f2i"]
-[ext_resource type="PackedScene" uid="uid://df488wdelekp8" path="res://scenes/game_4/bg.tscn" id="2_5m14n"]
 [ext_resource type="PackedScene" uid="uid://dctvi3v8q1px7" path="res://core/menu.tscn" id="3_rbq6n"]
 
 [node name="Game2" type="Node2D" unique_id=888259485]
 script = ExtResource("1_61f2i")
-
-[node name="CanvasLayer" parent="." unique_id=271548736 instance=ExtResource("2_5m14n")]
 
 [node name="ProfessionSprite" type="Sprite2D" parent="." unique_id=100415745]
 position = Vector2(173, 319)
@@ -28,6 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ScoreLabel" type="Label" parent="UI" unique_id=671145090]
+visible = false
 layout_mode = 0
 offset_left = 75.0
 offset_top = 50.0
@@ -36,6 +34,7 @@ offset_bottom = 101.0
 text = "Счёт: 0"
 
 [node name="RoundLabel" type="Label" parent="UI" unique_id=310796591]
+visible = false
 layout_mode = 0
 offset_left = 75.0
 offset_top = 110.0
@@ -45,10 +44,11 @@ text = "Раунд: 0/5"
 horizontal_alignment = 1
 
 [node name="ProfessionLabel" type="Label" parent="UI" unique_id=1887190342]
+visible = false
 layout_mode = 0
-offset_left = 78.0
+offset_left = 75.0
 offset_top = 80.0
-offset_right = 118.0
+offset_right = 115.0
 offset_bottom = 103.0
 text = "Врач"
 horizontal_alignment = 1
@@ -72,3 +72,4 @@ offset_bottom = 477.0
 text = "Играть еще"
 
 [node name="Menu" parent="." unique_id=2029094576 instance=ExtResource("3_rbq6n")]
+visible = false

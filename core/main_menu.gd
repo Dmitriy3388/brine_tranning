@@ -59,9 +59,21 @@ func _on_continue():
 
 func _on_settings():
 	if settings_popup:
-		var button = $MenuButtons/SettingsButton
-		var button_global_pos = button.global_position
-		settings_popup.position = Vector2i(button_global_pos.x, button_global_pos.y + 50)
+		# Получаем размер экрана
+		var screen_size = get_viewport().get_visible_rect().size
+		
+		# Получаем размер попапа
+		var popup_size = settings_popup.size
+		
+		# Вычисляем позицию: прижимаем к левому краю с отступом 20px
+		var pos_x = 20
+		
+		# Вычисляем позицию: по центру по вертикали
+		var pos_y = (screen_size.y - popup_size.y) / 2
+		
+		# Устанавливаем позицию
+		settings_popup.position = Vector2i(pos_x, pos_y)
+		
 		settings_popup.popup()
 
 func _on_quit():

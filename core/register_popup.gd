@@ -1,8 +1,33 @@
 extends Panel
 
 func _ready():
+	# Откладываем центрирование на следующий кадр
+	call_deferred("center_popup")
+	
 	$VBoxContainer/CreateButton.pressed.connect(_on_create)
 	$VBoxContainer/CancelButton.pressed.connect(_on_cancel)
+
+func center_popup():
+	# Ждем один кадр, чтобы размеры точно определились
+	await get_tree().process_frame
+	
+	# Получаем размер экрана
+	var screen_size = get_viewport().get_visible_rect().size
+	
+	# Получаем реальный размер попапа
+	var popup_size = size
+	
+	print("Screen size: ", screen_size)
+	print("Popup size: ", popup_size)
+	
+	# Вычисляем позицию для центра окна
+	var center_x = (screen_size.x - popup_size.x) / 2
+	var center_y = (screen_size.y - popup_size.y) / 2
+	
+	# Устанавливаем позицию
+	position = Vector2(center_x, center_y)
+	
+	print("New position: ", position)
 
 func _on_create():
 	var name = $VBoxContainer/NameInput.text.strip_edges()
@@ -38,7 +63,7 @@ func _on_create():
 		"Добро пожаловать, " + name + "!",
 		true,
 		1.5,
-		func(): 
+		func():
 			GameManager.open_game_selector()
 	)
 

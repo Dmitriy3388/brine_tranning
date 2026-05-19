@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://5exhgp5572r8"]
+
+[ext_resource type="Script" uid="uid://df6n0hd4dvweb" path="res://core/top_bar.gd" id="1_n6t4n"]
+[ext_resource type="Theme" uid="uid://dknv2awmtpevm" path="res://core/resourses/theme.tres" id="2_8ywu3"]
+[ext_resource type="PackedScene" uid="uid://dqxluiqapd8uu" path="res://core/popup_panel_menu.tscn" id="4_2mkjd"]
+
+[node name="TopBar" type="CanvasLayer" unique_id=82723050]
+script = ExtResource("1_n6t4n")
+
+[node name="Panel" type="Panel" parent="." unique_id=489099550]
+self_modulate = Color(1, 1, 1, 0.023529412)
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme = ExtResource("2_8ywu3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=1377694514]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 160.0
+offset_bottom = 53.0
+
+[node name="MenuButton" type="Button" parent="Panel/HBoxContainer" unique_id=648719696]
+layout_mode = 2
+text = "Меню"
+
+[node name="Avatar" type="TextureRect" parent="Panel/HBoxContainer" unique_id=620061430]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Panel/HBoxContainer" unique_id=1284491782]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Panel/HBoxContainer" unique_id=1961398464]
+layout_mode = 2
+
+[node name="Stars" type="Label" parent="Panel/HBoxContainer" unique_id=1362269712]
+layout_mode = 2
+
+[node name="GameStats" type="Label" parent="Panel/HBoxContainer" unique_id=314765971]
+layout_mode = 2
+
+[node name="PopupPanel" parent="Panel" unique_id=2142165672 instance=ExtResource("4_2mkjd")]

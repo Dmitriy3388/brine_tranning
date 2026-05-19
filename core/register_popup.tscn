@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://ljtnoxsaj70o" path="res://core/register_popup.gd" id="1_fk35v"]
 [ext_resource type="Theme" uid="uid://dknv2awmtpevm" path="res://core/resourses/theme.tres" id="1_t5o70"]
 [ext_resource type="StyleBox" uid="uid://b45k3sovtdquc" path="res://core/resourses/popup_style.tres" id="2_ckala"]
-[ext_resource type="Texture2D" uid="uid://c73x7dyiy8b1q" path="res://assets/game_4/1776366435107.png" id="3_iajl4"]
 
 [node name="RegisterPopup" type="Panel" unique_id=1626489828]
 anchors_preset = 8
@@ -11,24 +10,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -1.0
+offset_right = 265.0
+offset_bottom = 161.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_t5o70")
 theme_override_styles/panel = ExtResource("2_ckala")
 script = ExtResource("1_fk35v")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1509482745]
-layout_mode = 0
-offset_left = -664.5
-offset_top = -433.0
-offset_right = 711.5
-offset_bottom = 335.0
-texture = ExtResource("3_iajl4")
-
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1818389329]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 258.0
+offset_bottom = 153.0
 
 [node name="NameInput" type="LineEdit" parent="VBoxContainer" unique_id=1644679592]
 layout_mode = 2

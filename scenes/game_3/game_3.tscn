@@ -113,3 +113,4 @@ collision_mask = 3
 [node name="UI" parent="." unique_id=163202219 instance=ExtResource("5_m5kj8")]
 
 [node name="Menu" parent="." unique_id=2029094576 instance=ExtResource("6_5bin6")]
+visible = false

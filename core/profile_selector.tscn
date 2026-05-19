@@ -3,7 +3,6 @@
 [ext_resource type="Theme" uid="uid://dknv2awmtpevm" path="res://core/resourses/theme.tres" id="1_0yhc0"]
 [ext_resource type="Script" uid="uid://bqus07f6r33sf" path="res://core/profile_selector.gd" id="1_6r1w6"]
 [ext_resource type="StyleBox" uid="uid://b45k3sovtdquc" path="res://core/resourses/popup_style.tres" id="2_u4amd"]
-[ext_resource type="Texture2D" uid="uid://c73x7dyiy8b1q" path="res://assets/game_4/1776366435107.png" id="3_61dyk"]
 
 [node name="ProfileSelector" type="Panel" unique_id=1536942770]
 anchors_preset = 8
@@ -18,14 +17,6 @@ grow_vertical = 2
 theme = ExtResource("1_0yhc0")
 theme_override_styles/panel = ExtResource("2_u4amd")
 script = ExtResource("1_6r1w6")
-
-[node name="BackGround" type="TextureRect" parent="." unique_id=1108560137]
-layout_mode = 0
-offset_left = -611.5
-offset_top = -397.0
-offset_right = 764.5
-offset_bottom = 371.0
-texture = ExtResource("3_61dyk")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=661613077]
 layout_mode = 1

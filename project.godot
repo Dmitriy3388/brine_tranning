@@ -20,6 +20,9 @@ config/icon="res://icon.svg"
 GameManager="*uid://vo5q3qosfdgr"
 ProfileManager="*uid://358811hfa247"
 PopupHelper="*uid://c5c4ehr8h2rvv"
+BackGround="*uid://c63huftt1gauk"
+TopBar="*uid://5exhgp5572r8"
+EffectsManager="*uid://c2fhbrxrwncon"
 
 [display]
 
@@ -30,6 +33,14 @@ window/stretch/mode="canvas_items"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/chromatica/plugin.cfg", "res://addons/theme_gen_save_sync/plugin.cfg")
+
+[gui]
+
+theme/custom_font="uid://b3otcwydyr6hi"
 
 [input_devices]
 
@@ -43,3 +54,4 @@ pointing/emulate_touch_from_mouse=true
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

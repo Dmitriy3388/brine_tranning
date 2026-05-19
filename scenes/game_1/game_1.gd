@@ -201,8 +201,11 @@ func _on_game_over():
 
 func update_ui():
 	var rounds_text = str(completed_rounds) + "/" + str(ROUNDS_TO_WIN)
-	score_label.text = "⭐ " + str(score) + "  |  ❌ " + str(mistakes) + "/" + str(MAX_MISTAKES) + "  |  🔄 " + rounds_text
-
+	#score_label.text = "⭐ " + str(score) + "  |  ❌ " + str(mistakes) + "/" + str(MAX_MISTAKES)
+	
+	# Обновляем топ-бар
+	GameManager.update_top_bar(score, mistakes, MAX_MISTAKES, "🔄 " + rounds_text)
+	
 func update_trait_label():
 	var trait_display = {
 		"живое": "ЖИВОЕ",
@@ -213,4 +216,4 @@ func update_trait_label():
 		"имеет ноги": "ИМЕЕТ НОГИ",
 		"пушистое": "ПУШИСТОЕ"
 	}
-	trait_label.text = "❓ Найди лишнее: " + trait_display.get(current_trait, current_trait)
+	#trait_label.text = "❓ Найди лишнее: " + trait_display.get(current_trait, current_trait)

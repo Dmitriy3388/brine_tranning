@@ -168,10 +168,13 @@ func _on_item_pressed(button, id):
 		next_round()
 
 func update_ui():
-	score_label.text = "🏆 " + str(score) + "/" + str(TOTAL_ROUNDS)
-	round_label.text = "📊 Раунд: " + str(round) + "/" + str(TOTAL_ROUNDS)
-	profession_label.text = "💼 " + current_profession["name"]
-
+	#score_label.text = "🏆 " + str(score) + "/" + str(TOTAL_ROUNDS)
+	#round_label.text = "📊 Раунд: " + str(round) + "/" + str(TOTAL_ROUNDS)
+	#profession_label.text = "💼 " + current_profession["name"]
+	
+	# Обновляем топ-бар
+	GameManager.update_top_bar(score, mistakes, MAX_MISTAKES, "📊 " + str(round) + "/" + str(TOTAL_ROUNDS))
+	
 func _on_game_complete():
 	GameManager.complete_game("game_2")
 	

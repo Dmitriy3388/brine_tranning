@@ -60,6 +60,7 @@ texture_pressed = ExtResource("4_n4y67")
 action = "ui_accept"
 
 [node name="MushroomCounter" type="Label" parent="." unique_id=1378745814]
+visible = false
 offset_left = 20.0
 offset_top = 30.0
 offset_right = 60.0

@@ -1,49 +1,54 @@
 [gd_scene format=3 uid="uid://dctvi3v8q1px7"]
 
-[ext_resource type="Script" path="res://core/menu.gd" id="1_wfmir"]
+[ext_resource type="Script" uid="uid://4071l3d7ieqr" path="res://core/menu.gd" id="1_wfmir"]
+[ext_resource type="PackedScene" uid="uid://dqxluiqapd8uu" path="res://core/popup_panel_menu.tscn" id="2_4imft"]
 [ext_resource type="Theme" uid="uid://dknv2awmtpevm" path="res://core/resourses/theme.tres" id="2_ouk20"]
+[ext_resource type="Texture2D" uid="uid://dq4kos677crbv" path="res://assets/ui/red_n.png" id="4_wyrkb"]
+[ext_resource type="StyleBox" uid="uid://c8ec0teeyahjj" path="res://core/resourses/button_p_texture.tres" id="5_ffj4i"]
+[ext_resource type="Texture2D" uid="uid://d2du7p0ccmpvo" path="res://assets/ui/red_p.png" id="6_ffj4i"]
+[ext_resource type="Texture2D" uid="uid://cd3grr7a6ki1" path="res://assets/ui/red_f.png" id="7_grplm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ffj4i"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("4_wyrkb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6yjyn"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("6_ffj4i")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g5roi"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("7_grplm")
 
 [node name="Menu" type="CanvasLayer" unique_id=2029094576]
 script = ExtResource("1_wfmir")
 
-[node name="PopupPanel" type="PopupPanel" parent="." unique_id=1626918501]
-oversampling_override = 1.0
-mode = 3
-initial_position = 1
-size = Vector2i(165, 118)
-nonclient_area = Rect2i(0, 0, 0, 73)
-visible = true
-
-[node name="PlayMenu" type="VBoxContainer" parent="PopupPanel" unique_id=1398154906]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -161.0
-offset_top = 4.0
-offset_right = -4.0
-offset_bottom = 114.0
-grow_horizontal = 0
-theme = ExtResource("2_ouk20")
-
-[node name="Selector" type="Button" parent="PopupPanel/PlayMenu" unique_id=7724548]
-layout_mode = 2
-text = "Выбор Игры"
-
-[node name="MainMenu" type="Button" parent="PopupPanel/PlayMenu" unique_id=295397887]
-layout_mode = 2
-text = "В меню"
-
-[node name="Back" type="Button" parent="PopupPanel/PlayMenu" unique_id=126167410]
-layout_mode = 2
-text = "Назад"
+[node name="PopupPanel" parent="." unique_id=2142165672 instance=ExtResource("2_4imft")]
 
 [node name="LineMenu" type="Control" parent="." unique_id=2084031230]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("2_ouk20")
 
 [node name="LineMenuButton" type="Button" parent="LineMenu" unique_id=2106764073]
+visible = false
+custom_minimum_size = Vector2(60, 35)
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 67.0
+offset_bottom = 38.0
+theme_override_constants/h_separation = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_ffj4i")
+theme_override_styles/normal_mirrored = ExtResource("5_ffj4i")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6yjyn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_g5roi")
 text = "Меню"

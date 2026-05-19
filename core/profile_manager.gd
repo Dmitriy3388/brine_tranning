@@ -30,6 +30,42 @@ func create_profile(name: String, gender: String) -> Dictionary:
 	save_profile(name, profile)
 	return profile
 
+# НОВЫЙ МЕТОД: возвращает только имена профилей (быстро)
+func get_all_profile_names() -> Array:
+	var profile_names = []
+	var dir = DirAccess.open(PROFILES_DIR)
+	
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		
+		while file_name != "":
+			if file_name.ends_with(".json"):
+				var name = file_name.replace(".json", "")
+				profile_names.append(name)
+			file_name = dir.get_next()
+		
+		dir.list_dir_end()
+	
+	return profile_names
+
+# НОВЫЙ МЕТОД: загружает ТОЛЬКО выбранный профиль
+func load_profile_light(name: String) -> Dictionary:
+	var path = PROFILES_DIR + name + ".json"
+	
+	if not FileAccess.file_exists(path):
+		return {}
+	
+	var file = FileAccess.open(path, FileAccess.READ)
+	var json = JSON.parse_string(file.get_as_text())
+	
+	# Загружаем только нужные поля (без stars и unlocked_games, если не нужно)
+	return {
+		"name": json.get("name", ""),
+		"gender": json.get("gender", "male"),
+		"created": json.get("created", "")
+	}
+
 func save_profile(name: String, data: Dictionary):
 	var file = FileAccess.open(PROFILES_DIR + name + ".json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(data))

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c63huftt1gauk"]
+
+[ext_resource type="Texture2D" uid="uid://c73x7dyiy8b1q" path="res://assets/game_4/1776366435107.png" id="1_gsws3"]
+
+[node name="BackGround" type="TextureRect" unique_id=1894956898]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gsws3")

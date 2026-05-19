@@ -6,7 +6,8 @@ func _ready():
 	$VBoxContainer/BackButton.pressed.connect(_on_back)
 
 func load_profiles():
-	var profiles = ProfileManager.get_all_profiles()
+	# Быстро получаем только имена
+	var profile_names = ProfileManager.get_all_profile_names()
 	var list = $ProfilesList
 	
 	list.clear()
@@ -16,9 +17,9 @@ func load_profiles():
 	list.add_theme_constant_override("item_separation", 40)
 	list.add_theme_font_size_override("font_size", 24)
 	
-	for p in profiles:
-		var text = p.name + " (" + p.gender + ")"
-		list.add_item(text)
+	# Добавляем ТОЛЬКО имена (без загрузки полных данных)
+	for name in profile_names:
+		list.add_item(name)  # Показываем только имя
 	
 	if list.get_item_count() > 0:
 		list.select(0)
@@ -37,8 +38,19 @@ func _on_select():
 		)
 		return
 	
-	var profiles = ProfileManager.get_all_profiles()
-	var profile = profiles[selected[0]]
+	# Загружаем ТОЛЬКО выбранный профиль
+	var profile_name = list.get_item_text(selected[0])
+	var profile = ProfileManager.load_profile(profile_name)  # Полная загрузка только сейчас
+	
+	if profile.is_empty():
+		PopupHelper.show_notification(
+			"Ошибка",
+			"Не удалось загрузить профиль",
+			false,
+			1.5,
+			Callable()
+		)
+		return
 	
 	GameManager.set_profile(profile)
 	GameManager.save_last_profile(profile["name"])
@@ -48,7 +60,7 @@ func _on_select():
 		"Добро пожаловать, " + profile["name"] + "!",
 		true,
 		1.5,
-		func(): 
+		func():
 			GameManager.open_game_selector()
 	)
 

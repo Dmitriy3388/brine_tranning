@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://chc2w6wqw3232"]
 
 [ext_resource type="Script" uid="uid://dtht174xpe5i8" path="res://core/game_selector.gd" id="1_rs2bl"]
-[ext_resource type="Texture2D" uid="uid://c73x7dyiy8b1q" path="res://assets/game_4/1776366435107.png" id="2_hg07a"]
-[ext_resource type="StyleBox" uid="uid://8vyf0206ep3w" path="res://assets/ui/green_button_theme.tres" id="2_wvouo"]
-[ext_resource type="StyleBox" uid="uid://cusc3131hyofo" path="res://assets/ui/green_button_pressed_theme.tres" id="3_hecs3"]
+[ext_resource type="StyleBox" uid="uid://crqpleye8ojtu" path="res://core/resourses/button_texture.tres" id="3_ajdog"]
+[ext_resource type="Texture2D" uid="uid://bsmwg1cppovyo" path="res://assets/ui/icon_star.png" id="3_kdjfj"]
 [ext_resource type="Theme" uid="uid://dknv2awmtpevm" path="res://core/resourses/theme.tres" id="3_m4r4m"]
+[ext_resource type="StyleBox" uid="uid://dfs77l1oqu38w" path="res://core/resourses/press_texture.tres" id="4_kdjfj"]
+[ext_resource type="StyleBox" uid="uid://dej8f70jqx3ku" path="res://core/resourses/botton_f_texture.tres" id="5_cguht"]
 
 [sub_resource type="FontVariation" id="FontVariation_hecs3"]
 
@@ -15,26 +16,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_m4r4m")
 script = ExtResource("1_rs2bl")
-
-[node name="BackGruondSelector" type="TextureRect" parent="." unique_id=19866495]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_hg07a")
 
 [node name="Label" type="Label" parent="." unique_id=847052645]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -53.0
-offset_top = 50.0
-offset_right = 53.0
-offset_bottom = 73.0
+offset_left = -62.5
+offset_top = 93.0
+offset_right = 62.5
+offset_bottom = 119.0
 grow_horizontal = 2
 text = "Выбери Игру"
 horizontal_alignment = 1
@@ -55,76 +48,75 @@ grow_vertical = 2
 theme = ExtResource("3_m4r4m")
 
 [node name="Game1" type="Button" parent="SelectorButtons" unique_id=217171606]
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 theme = ExtResource("3_m4r4m")
-theme_override_colors/font_color = Color(1.3085548e-07, 0.08523644, 0.054462247, 1)
+theme_override_constants/icon_max_width = 30
 theme_override_fonts/font = SubResource("FontVariation_hecs3")
-theme_override_styles/normal = ExtResource("2_wvouo")
-theme_override_styles/normal_mirrored = ExtResource("2_wvouo")
-theme_override_styles/pressed = ExtResource("3_hecs3")
-theme_override_styles/pressed_mirrored = ExtResource("3_hecs3")
-text = "Выбери лишнее "
+theme_override_icons/icon = ExtResource("3_kdjfj")
+theme_override_styles/normal = ExtResource("3_ajdog")
+theme_override_styles/pressed = ExtResource("4_kdjfj")
+theme_override_styles/hover = ExtResource("5_cguht")
+text = "Выбери
+ лишнее "
+icon = ExtResource("3_kdjfj")
 
 [node name="Game2" type="Button" parent="SelectorButtons" unique_id=102011938]
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(1.3085548e-07, 0.08523644, 0.054462247, 1)
+theme_override_constants/icon_max_width = 30
 theme_override_fonts/font = SubResource("FontVariation_hecs3")
-theme_override_styles/normal = ExtResource("2_wvouo")
-theme_override_styles/normal_mirrored = ExtResource("2_wvouo")
-theme_override_styles/pressed = ExtResource("3_hecs3")
-theme_override_styles/pressed_mirrored = ExtResource("3_hecs3")
+theme_override_icons/icon = ExtResource("3_kdjfj")
+theme_override_styles/normal = ExtResource("3_ajdog")
+theme_override_styles/pressed = ExtResource("4_kdjfj")
+theme_override_styles/hover = ExtResource("5_cguht")
 text = "Профессии"
+icon = ExtResource("3_kdjfj")
 
 [node name="Game3" type="Button" parent="SelectorButtons" unique_id=1925576260]
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(1.3085548e-07, 0.08523644, 0.054462247, 1)
+theme_override_constants/icon_max_width = 30
 theme_override_fonts/font = SubResource("FontVariation_hecs3")
-theme_override_styles/normal = ExtResource("2_wvouo")
-theme_override_styles/normal_mirrored = ExtResource("2_wvouo")
-theme_override_styles/pressed = ExtResource("3_hecs3")
-theme_override_styles/pressed_mirrored = ExtResource("3_hecs3")
+theme_override_icons/icon = ExtResource("3_kdjfj")
+theme_override_styles/normal = ExtResource("3_ajdog")
+theme_override_styles/pressed = ExtResource("4_kdjfj")
+theme_override_styles/hover = ExtResource("5_cguht")
 text = "Лабиринт
 "
+icon = ExtResource("3_kdjfj")
 
 [node name="Game4" type="Button" parent="SelectorButtons" unique_id=286006376]
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(1.3085548e-07, 0.08523644, 0.054462247, 1)
+theme_override_constants/icon_max_width = 30
 theme_override_fonts/font = SubResource("FontVariation_hecs3")
-theme_override_styles/normal = ExtResource("2_wvouo")
-theme_override_styles/normal_mirrored = ExtResource("2_wvouo")
-theme_override_styles/pressed = ExtResource("3_hecs3")
-theme_override_styles/pressed_mirrored = ExtResource("3_hecs3")
+theme_override_styles/normal = ExtResource("3_ajdog")
+theme_override_styles/pressed = ExtResource("4_kdjfj")
+theme_override_styles/hover = ExtResource("5_cguht")
 text = "Пазлы
 "
+icon = ExtResource("3_kdjfj")
 
 [node name="Game5" type="Button" parent="SelectorButtons" unique_id=1274910228]
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(1.3085548e-07, 0.08523644, 0.054462247, 1)
+theme_override_constants/icon_max_width = 30
 theme_override_fonts/font = SubResource("FontVariation_hecs3")
-theme_override_styles/normal = ExtResource("2_wvouo")
-theme_override_styles/normal_mirrored = ExtResource("2_wvouo")
-theme_override_styles/pressed = ExtResource("3_hecs3")
-theme_override_styles/pressed_mirrored = ExtResource("3_hecs3")
-text = "Расскраска
+theme_override_styles/normal = ExtResource("3_ajdog")
+theme_override_styles/pressed = ExtResource("4_kdjfj")
+theme_override_styles/hover = ExtResource("5_cguht")
+text = "Раскраска
 "
+icon = ExtResource("3_kdjfj")
 
 [node name="Back" type="Button" parent="SelectorButtons" unique_id=1149393320]
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-theme_override_colors/font_color = Color(1.3085548e-07, 0.08523644, 0.054462247, 1)
+theme_override_constants/icon_max_width = 30
 theme_override_fonts/font = SubResource("FontVariation_hecs3")
-theme_override_styles/normal = ExtResource("2_wvouo")
-theme_override_styles/normal_mirrored = ExtResource("2_wvouo")
-theme_override_styles/pressed = ExtResource("3_hecs3")
-theme_override_styles/pressed_mirrored = ExtResource("3_hecs3")
+theme_override_styles/normal = ExtResource("3_ajdog")
+theme_override_styles/pressed = ExtResource("4_kdjfj")
+theme_override_styles/hover = ExtResource("5_cguht")
 text = "Назад"
-
-[node name="StarsLabel" type="Label" parent="." unique_id=445223636]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0.54367423, 0.5142425, 0.0029057497, 1)
-theme_override_font_sizes/font_size = 28
+icon = ExtResource("3_kdjfj")

@@ -116,11 +116,10 @@ func setup_player():
 func update_mushroom_counter():
 	if mushroom_counter:
 		mushroom_counter.text = "🍄 " + str(collected_mushrooms) + "/" + str(TOTAL_MUSHROOMS)
-		if collected_mushrooms >= TOTAL_MUSHROOMS:
-			mushroom_counter.add_theme_color_override("font_color", Color.GREEN)
-		else:
-			mushroom_counter.add_theme_color_override("font_color", Color.WHITE)
-
+	
+	# Обновляем топ-бар (без ошибок, только грибы)
+	GameManager.update_top_bar(-1, -1, 0, "🍄 " + str(collected_mushrooms) + "/" + str(TOTAL_MUSHROOMS))
+	
 func _on_mushroom_collected():
 	collected_mushrooms += 1
 	update_mushroom_counter()
